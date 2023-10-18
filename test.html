@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 삼육구 게임 실습 1
+        //function 삼육구게임(num){
+        //    if(num % 3 == 0){
+        //        console.log('박수')
+        //    }else{
+        //        console.log('통과')
+        //    }
+        //}
+
+        //삼육구게임(3);
+        //삼육구게임(4);
+        //삼육구게임(15);
+
+        // 삼육구 게임 업그레이드: 3의 배수에서 박수, 9의 배수에서 박수 두번
+        //function 삼육구게임(num){
+        //    if(num % 9 == 0){
+        //        console.log('박수 박수')
+        //    }else if(num % 3 == 0){
+        //        console.log('박수')
+        //    }else{
+        //        console.log('통과')
+        //    }
+        //}
+
+        //삼육구게임(3);
+        //삼육구게임(9);
+        //삼육구게임(18);
+        //삼육구게임(6);
+        //삼육구게임(5);
+
+        // 실습3. 공인중개사 실습
+        // 시험점수 입력시 합격/ 불합격
+        // 한 과목이 40점 미만이면 과락으로 불합격,
+	    //두 과목 합해서 120점 이상이면 합격
+
+        function 합격여부(num1, num2){
+            if((num1 >= 40 && num2 >= 40) && num1 + num2 >= 120){
+                console.log('합격')
+            }else{
+                console.log('불합격')
+            }
+        }
+        
+        합격여부(70,70);
+        합격여부(30,100);
+        합격여부(50,50);
+        합격여부(40,40);
+
+
+    </script>
+
+</body>
+</html>
