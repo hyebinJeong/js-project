@@ -19,10 +19,19 @@
   <body>
     <!-- 모달창 -->
     <div class="black-bg">
-        <div class="white-bg">
-          <h4>로그인하세요</h4>
-          <button class="btn btn-danger" id="close">닫기</button>
-        </div>
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-primary send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
       </div>
     </div>
 
@@ -34,58 +43,9 @@
     <script>
 
       // if (조건이 참이면){실행해라}
-
       // 전송버튼누르면
       // input태그에 입력한값이 공백이면 알림창 띄워주세요
 
-      // js 버전
-      // form이 작동될 때 submit도 같이 작동되니까 click 대신 submit적어도 됨
-
-    //  document.querySelector('form').addEventListener('submit',function(){
-    //    if (document.getElementById('id').value == ''){
-    //      alert("아이디를 입력하세요.")
-    //    }
-    //  })
-
-    //  document.querySelector('#send').addEventListener('click',function(){
-    //    if (document.getElementById('id').value == ''){
-    //      alert("아이디를 입력하세요.");
-    //    }
-    //  });
-
-      // jQuery버전은
-      //$('form').on('submit', function(){
-      //  if (document.getElementById('id').value == ''){
-      //    alert("아이디를 입력하세요.");
-      // }})
-
-      // 전송누르면 아이디/비번 입력란 둘 다 공백검사
-      // 비번이 6자 미만이면 더 길게 입력하라고 안내문 띄우기
-      $('#send').on('click', function(){
-        if (document.getElementById('id').value == ''){
-          alert("아이디를 입력하세요.");
-        }if (document.getElementById('pw').value == ''){
-          alert("비밀번호를 입력하세요")
-        }if (document.getElementById('pw').value.length < 6){
-          alert("더 길게 입력해주세요")
-        }
-      });
-
-      
-      // input, change 이벤트
-      document.getElementById('id').addEventListener('change', function(){
-        console.log('안녕')
-      });
-
-      // 비번 6자리 미만이면 입력시 실시간으로 메세지 띄워주기
-      document.getElementById('pw').addEventListener('input', function(){
-        let lengthPw = document.getElementById('pw').value.length;
-        if(lengthPw < 6){
-          document.getElementById('pw-popup').style.display='block';
-        }else{
-          document.querySelector('#pw-popup').style.display="none";
-        }
-      })
 
 
       // 버튼 누르면 모달창 띄우기 1
