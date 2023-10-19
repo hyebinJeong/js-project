@@ -24,12 +24,14 @@
 
         <form action="success.html">
           <div class="my-3">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="id" />
+            <p id="id-popup">이메일 형식이 아닙니다</p>
           </div>
           <div class="my-3">
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control" id="pw"/>
+            <p id="pw-popup">비밀번호를 더 입력해주세요</p>
           </div>
-          <button type="submit" class="btn btn-primary send">전송</button>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
           <button type="button" class="btn btn-danger" id="close">닫기</button>
         </form>
       </div>
@@ -41,12 +43,6 @@
     </div>
 
     <script>
-
-      // if (조건이 참이면){실행해라}
-      // 전송버튼누르면
-      // input태그에 입력한값이 공백이면 알림창 띄워주세요
-
-
 
       // 버튼 누르면 모달창 띄우기 1
       // js버전
@@ -76,6 +72,64 @@
       // document.querySelector('#close').addEventListener('click', function(){
       //   document.querySelector('.black-bg').classList.remove('show-modal');
       // })
+
+
+      // if (조건이 참이면){실행해라}
+      // 전송버튼누르면
+      // input태그에 입력한값이 공백이면 알림창 띄워주세요
+
+      document.querySelector('form').addEventListener('submit',function(e){
+        
+        var 사용자입력값 = document.getElementById('id').value
+        if (사용자입력값 == ''){
+          alert("아이디를 입력하세요.")
+          e.preventDefault();
+        }
+        if (document.getElementById('pw').value == ''){
+          alert("비밀번호를 입력하세요.")
+          e.preventDefault();
+        }
+        if (document.getElementById('pw').value.length < 6){
+          alert("더 길게 입력해주세요.")
+          e.preventDefault();
+        }
+        // 이메일 형식 검사 코드
+        if(!/\S+@\S+\.\S+/.test(사용자입력값)){
+          alert('이메일 형식이 아닙니다')
+           //전송 막기
+          e.preventDefault();
+        }
+      })
+
+      // 비번 6자리 미만이면 실시간으로 메세지 띄워주기
+      document.getElementById('pw').addEventListener('input',function(){
+        let lengthpw = document.getElementById('pw').value.length;
+        if(lengthpw < 6){
+          document.querySelector('#pw-popup').style.display = "block";
+        }else{
+          document.querySelector('#pw-popup').style.display = "none";
+        }
+      })
+
+      // 폼 전송시 유저가 입력한 비번에 영어 대문자 있는지 검사
+
+      document.querySelector('form').addEventListener('submit', function(){
+        if(/[A-Z]/.test((document.querySelector('#pw').value))){
+          alert('대문자가 있습니다')
+        }else{
+          alert('대문자가 없습니다')
+        }
+      })
+
+      // 다른 코드
+
+      $('form').on('submit',function(){
+        var 비밀번호 = document.getElementById('pw').value
+        if ( /[A-Z]/.test(비밀번호) == flase){
+          alert('대문자가 없습니다.')
+        }
+      })
+
     </script>
 
     <script

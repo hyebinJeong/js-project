@@ -19,20 +19,50 @@
         <button id="test-btn" class="btn btn-danger">로그인</button>
       </div>
 
+    <div class="alert alert-danger">
+      <span id="num">5</span>초 이내 구매시 사은품 증정
+    </div>
+
     <script>
+
+      // 1초마다 5라는 문자를 1씩 감소, 0이 되면 div 숨기기
+      
+      var count = 5;
+
+      setInterval(function(){
+        count--;
+        if(count >= 0){
+          document.querySelector('#num').innerHTML = count;
+        }else{
+          document.querySelector('.alert').style.display = "none";
+        }
+      }, 1000)
+
+      // 1초후에 알림창 숨김
+      //setTimeout(function(){
+      //  $('.alert').hide();
+      //}, 1000)
+
+
+      //1초마다 console에 안녕 뜸
+      //setInterval(function(){
+      //  console.log('안녕')
+      //}, 1000)
+
+
         // badge 클릭횟수가 홀수면 내부글자를 Light로 변경
         // badge 클릭횟수가 짝수면 내부글자를 Dark로 변경
 
-        var count = 0;
+       //var count = 0;
 
-        $('.badge').on('click',function(){
-          count++;
-          if(count % 2 == 0){
-            document.querySelector('.badge').innerHTML = "Light";
-          }else{
-            document.querySelector('.badge').innerHTML= "Dark";
-          }
-        })
+        //$('.badge').on('click',function(){
+        //  count++;
+        //  if(count % 2 == 0){
+        //    document.querySelector('.badge').innerHTML = "Light";
+        //  }else{
+        //    document.querySelector('.badge').innerHTML= "Dark";
+        //  }
+        //})
 
         // 이자율 계산기
 
@@ -46,6 +76,12 @@
         }
 
         console.log(미래예금액) 
+
+
+        // 커피리필 예제
+
+        
+
 
     </script>
 

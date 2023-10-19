@@ -49,6 +49,6 @@
   background: lightgrey;
 }
 
-#pw-popup{
+#pw-popup, #id-popup{
   display: none;
 }
