@@ -52,3 +52,35 @@
 #pw-popup, #id-popup{
   display: none;
 }
+
+.slide-container {
+  /* 브라우저폭 == 100vw 
+  300vw는 브라우저 폭의 3배 */
+  width: 300vw;
+  /* 옆으로 이동시키는 방법 
+  1. margin 조절 */
+  /* margin-left: -100vw; */
+  /* 2. tranform 사용하기 (margin보다 더 부드러움) */
+  transition: all 1s;
+  /* transform: translateX(-100vw); */
+}
+
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+
+.slide-box img {
+  width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+/* 애니메이션 시작 전 스타일 */
+.navbar-brand {
+  font-size: 30px;
+}
