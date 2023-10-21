@@ -98,6 +98,17 @@
 
     <script>
 
+      //회원약관 끝까지 읽으면 alert 띄우기
+      $('.lorem').on('scroll',function(){
+        var 스크롤양 = document.querySelector('.lorem').scrollTop;
+        var 실제높이 = document.querySelector('.lorem').scrollHeight;
+        var 보이는높이 = document.querySelector('.lorem').clientHeight;
+        
+        if(스크롤양 + 보이는높이 >= 실제높이 - 10){
+          alert('회원약관에 동의하십니까?')
+        }
+      });
+
       // scroll 이벤트 리스너 (윈도우에 부착하기)
       //window.addEventListener('scroll', function(){
       //  console.log(window.scrollY);
