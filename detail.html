@@ -17,6 +17,13 @@
     ></script>
   </head>
   <body>
+    <div class="container mt 3">
+      <div class="card" p-3>
+        <span class="car-title">상품명</span>
+        <span class="car-price">가격</span>
+      </div>
+    </div>
+
     <div class="container mt-5">
       <ul class="list">
         <li class="tab-button">Products</li>
@@ -34,6 +41,76 @@
       </div>
     </div>
 
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2">
+        <option>모자</option>
+        <option>셔츠</option>
+        <option>바지</option>
+      </select>
+      <select class="form-select mt-2 form-hide">
+        <option value="">95</option>
+        <option value="">100</option>
+      </select>
+    </form>
+
+    <script>
+          // $('.form-select').eq(0).on('input', function(){
+          //   var value = $('.form-select').eq(0).val();
+          //   if (value == '셔츠'){
+          //     $('.form-select').eq(1).removeClass('form-hide');
+          //     $('.form-select').eq(1).html('');
+          //     var 셔츠템플릿 = `<option>95</option><option>100</option>`
+          //     $('.form-select').eq(1).append(셔츠템플릿)
+          //   }
+          //   // 바지선택하면 28,30 옵션나오게 js로 html생성하기
+          //   if(value == '바지'){
+          //       $('.form-select').eq(1).removeClass('form-hide');
+          //       // 원래있던 slect태그 안을 빈공간으로 만들겠다
+          //       $('.form-select').eq(1).html('');
+          //       //템플릿을 < select >에 추가하겠다
+          //       var 바지템플릿 = `<option>28</option><option>30</option>`;
+          //       $('.form-select').eq(1).append(바지템플릿)
+          //     }
+          //   if(value == '모자'){
+          //     $('.form-select').eq(1).addClass('form-hide')
+          //   }
+          // });
+
+          // 데이터 가져와서 갯수만큼 option 생성하기
+          var pants = [28, 30, 32];
+          $('.form-select').eq(0).on('input', function(){
+
+            var value = $('.form-select').eq(0).val();
+            if (value == '셔츠') {
+              $('.form-select').eq(1).removeClass('form-hide');
+            }
+            else if (value == '바지'){
+              $('.form-select').eq(1).removeClass('form-hide');
+              $('.form-select').eq(1).html('');
+              pants.forEach(function(a){
+                $('.form-select').eq(1).append(`<option>${a}</option>`)
+              })
+            }
+
+          });
+
+          // object 자료갯수만큼 반복문
+          var obj = {name : 'kim', age: 20}
+
+          for (var key in obj){
+            console.log(key); // key 출력
+            console.log(obj[key]) // value 출력
+          }
+
+          // var car = '소나타';
+          // var carPrice = 50000;
+          // var carColor = 'white';
+
+          // var car = ['소나타', 50000, 'white']
+          var car2 = { name: "소나타", price: [50000, 3000, 4000] };
+          document.querySelector(".car-price").innerHTML = car2.price[0];
+    </script>
     <script src="/tab.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
