@@ -55,6 +55,22 @@
     </form>
 
     <script>
+
+      //js문법 ajax 요청
+      fetch('https://codingapple1.github.io/price.json')
+        .then(res => res.json())
+        .then(function(data){
+          consoel.log(data)
+        })
+        .catch(function(error){
+          console.log('실패')
+        })
+        
+
+      // $.get('https://codingapple1.github.io/price.json').done(function(data){
+      //   console.log(data)
+      // }) ;
+
           // $('.form-select').eq(0).on('input', function(){
           //   var value = $('.form-select').eq(0).val();
           //   if (value == '셔츠'){
